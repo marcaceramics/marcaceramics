@@ -1,16 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Coming Soon</title>
-  <style>
-    html, body { margin: 0; height: 100%; background: #000; }
-    body { display: flex; align-items: center; justify-content: center; }
-    img { max-width: 100%; max-height: 100vh; object-fit: cover; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Marca Ceramics | Coming Soon</title>
+<meta name="description" content="Marca Ceramics is coming soon.">
+<meta name="theme-color" content="#3a0004">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --wine: #540005;
+    --deep: #2c0003;
+    --cream: #efe6d2;
+    --ember: #b3261e;
+    --mx: 50%;
+    --my: 30%;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; min-height: 100%; background: var(--deep); }
+  body {
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: clamp(36px, 9vh, 96px) 6vw max(clamp(32px, 7vh, 72px), env(safe-area-inset-bottom));
+    font-family: "Space Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+    color: var(--cream);
+    text-align: center;
+    overflow-x: hidden;
+    background:
+      radial-gradient(60vmax 60vmax at var(--mx) var(--my), rgba(179, 38, 30, .45), transparent 60%),
+      radial-gradient(120vmax 90vmax at 50% 110%, var(--wine), transparent 70%),
+      var(--deep);
+  }
+  /* soft grain so the surface doesn't feel flat */
+  body::before {
+    content: "";
+    position: fixed; inset: 0;
+    pointer-events: none;
+    opacity: .09;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+  header, footer { position: relative; width: 100%; max-width: 980px; }
+
+  #logo { width: 100%; height: auto; display: block; touch-action: none; cursor: crosshair; }
+  #logo circle {
+    fill: var(--cream);
+    transform-box: fill-box;
+    transform-origin: center;
+    opacity: 0;
+    animation: appear .7s ease-out forwards, shimmer 4.5s ease-in-out infinite;
+  }
+  @keyframes appear { to { opacity: 1; } }
+  @keyframes shimmer { 0%, 100% { opacity: 1; } 50% { opacity: .55; } }
+
+  h1 {
+    margin: 0 0 clamp(28px, 6vh, 56px);
+    font-weight: 500;
+    font-size: clamp(30px, 6.2vw, 68px);
+    line-height: 1.05;
+    letter-spacing: -.01em;
+  }
+  .contact { margin: 0; font-size: clamp(18px, 3vw, 34px); line-height: 1.35; font-weight: 400; }
+  .contact span { display: block; opacity: .8; }
+  .contact a {
+    color: inherit;
+    text-decoration: none;
+    background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+    transition: background-size .35s ease;
+    word-break: break-word;
+  }
+  .contact a:hover, .contact a:focus-visible { background-size: 100% 1px; }
+  .contact a:focus-visible { outline: 2px solid var(--cream); outline-offset: 6px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    #logo circle { animation: appear .01s forwards; }
+  }
+</style>
 </head>
 <body>
-  <img src="Poster.jpg" alt="Coming Soon">
+
+<header>
+  <svg id="logo" viewBox="0 0 1526.82 252.99" role="img" aria-label="Marca"></svg>
+</header>
+
+<footer>
+  <h1>Coming soon. Stay tuned.</h1>
+  <p class="contact">
+    <span>Get in touch</span>
+    <a href="mailto:info@marcaceramics.com">info@marcaceramics.com</a>
+  </p>
+</footer>
+
+<script>
+  // Marca logo: dot positions taken from the Illustrator SVG.
+  const pts = [[13.06,13.06],[58.44,58.44],[58.44,103.81],[58.44,149.18],[58.44,194.55],[58.44,239.92],[103.81,13.06],[149.18,13.06],[194.55,58.44],[194.55,103.81],[194.55,149.18],[194.55,194.55],[194.55,239.92],[239.92,13.06],[285.29,13.06],[330.66,58.44],[330.66,103.81],[330.66,149.18],[330.66,194.55],[330.66,239.92],[446.6,58.44],[446.6,149.18],[446.6,194.55],[491.97,13.06],[491.97,103.81],[491.97,239.92],[537.34,13.06],[537.34,103.81],[537.34,239.92],[582.72,13.06],[582.72,103.81],[582.72,239.92],[628.09,58.44],[628.09,103.81],[628.09,149.18],[628.09,194.55],[673.46,239.92],[738.99,13.06],[784.36,58.44],[784.36,103.81],[784.36,149.18],[784.36,194.55],[784.36,239.92],[829.73,13.06],[875.1,13.06],[920.47,58.44],[920.47,103.81],[1015.55,58.44],[1015.55,103.81],[1015.55,149.18],[1015.55,194.55],[1060.92,13.06],[1060.92,239.92],[1106.29,13.06],[1106.29,239.92],[1151.67,13.06],[1151.67,239.92],[1197.04,58.44],[1197.04,194.55],[1286.9,58.44],[1286.9,149.18],[1286.9,194.55],[1332.27,13.06],[1332.27,103.81],[1332.27,239.92],[1377.64,13.06],[1377.64,103.81],[1377.64,239.92],[1423.02,13.06],[1423.02,103.81],[1423.02,239.92],[1468.39,58.44],[1468.39,103.81],[1468.39,149.18],[1468.39,194.55],[1513.76,239.92]];
+  const svg = document.getElementById("logo");
+  const NS = "http://www.w3.org/2000/svg";
+  const VW = 1526.82, R = 13.06;
+  const dots = pts.map(([cx, cy], i) => {
+    const c = document.createElementNS(NS, "circle");
+    c.setAttribute("cx", cx); c.setAttribute("cy", cy); c.setAttribute("r", R);
+    c.style.animationDelay = `${Math.round(cx / VW * 900)}ms, ${1200 + Math.round(cx / VW * 2500)}ms`;
+    svg.appendChild(c);
+    return { el: c, cx, cy };
+  });
+
+  // Dots swell near a finger or cursor, and a warm glow follows it across the page.
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let px = -999, py = -999, ticking = false;
+
+  function update() {
+    ticking = false;
+    const r = svg.getBoundingClientRect();
+    const k = VW / r.width;
+    const mx = (px - r.left) * k, my = (py - r.top) * k;
+    dots.forEach(d => {
+      const dist = Math.hypot(d.cx - mx, d.cy - my);
+      const s = dist < 210 ? 1 + (1 - dist / 210) * 1.1 : 1;
+      d.el.style.transform = `scale(${s.toFixed(2)})`;
+    });
+  }
+  function move(e) {
+    px = e.clientX; py = e.clientY;
+    document.body.style.setProperty("--mx", (px / innerWidth * 100) + "%");
+    document.body.style.setProperty("--my", (py / innerHeight * 100) + "%");
+    if (!reduce && !ticking) { ticking = true; requestAnimationFrame(update); }
+  }
+  addEventListener("pointermove", move);
+  addEventListener("pointerdown", move);
+  addEventListener("pointerleave", () => { px = py = -999; update(); });
+</script>
 </body>
 </html>
